@@ -29,7 +29,7 @@ router.get('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    res.render('books/details', {title: 'Add Books', page:'details', books: ''})
+    res.render('books/details', {title: 'Add Books', books: ''})
 
 });
 
@@ -50,10 +50,10 @@ router.post('/add', (req, res, next) => {
     book.create(newBook, (err, book) => {
       if(err)
       {
-        console.error(err);
-        res.end(err);
+           console.log(err);
+           res.end(err);
       }
-      res.redirect('books/index');
+      res.redirect('/books');
     })
 
 
@@ -70,12 +70,11 @@ router.get('/:id', (req, res, next) => {
     book.findById(id, (err, bookToEdit) => {
       if(err)
       {
-        console.log(err);
-        res.end(err);
+        return console.error(err);
       }
       else
       {
-        res.render('books/details', {title: 'Edit', page:'details', books: bookToEdit});
+        res.render('books/details', {title: 'Edit', books: bookToEdit});
       }
 
     })
@@ -107,7 +106,7 @@ router.post('/:id', (req, res, next) => {
       }
       else
       {
-        res.redirect('books/index');
+        res.redirect('/books');
       }
     })
 
@@ -120,6 +119,16 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+
+    let id = req.params.id;
+    
+    book.remove({_id: id}, (err) => {
+      if(err)
+      {
+        return console.error(err);
+      }
+      res.redirect('/books');
+    })
 });
 
 
