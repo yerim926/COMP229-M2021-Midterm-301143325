@@ -1,3 +1,8 @@
+// File Name: index.js
+// Author's Name: Yerim Cho
+// Student ID : 301143325
+// Web App name: Book List
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();

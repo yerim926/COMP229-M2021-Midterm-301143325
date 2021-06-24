@@ -1,3 +1,8 @@
+// File Name: app.js
+// Author's Name: Yerim Cho
+// Student ID : 301143325
+// Web App name: Book List
+
 let mongoose = require('mongoose');
 
 // create a model class

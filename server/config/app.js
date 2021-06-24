@@ -1,3 +1,9 @@
+// File Name: app.js
+// Author's Name: Yerim Cho
+// Student ID : 301143325
+// Web App name: Book List
+
+
 // moddules for node and express
 let createError = require('http-errors');
 let express = require('express');

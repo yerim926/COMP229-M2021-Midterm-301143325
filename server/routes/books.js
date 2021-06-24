@@ -1,3 +1,8 @@
+// File Name: books.js
+// Author's Name: Yerim Cho
+// Student ID : 301143325
+// Web App name: Book List
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -26,51 +31,12 @@ router.get('/', (req, res, next) => {
 //  GET the Book Details page in order to add a new Book
 router.get('/add', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
     res.render('books/details', {title: 'Add Books', books: ''})
 
 });
 
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/add', async (req, res, next) => {
-
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-    
-  //    const {
-  //  body: {
-  //     Title,
-  //     Price,
-  //     Author,
-  //     Genre
-  //   }
-  // } = req;
-
-  //console.log(req.body.title);
-
-  // try {
-  //   const newBook = await book.create({
-  //     Title,
-  //     Price,
-  //     Author,
-  //     Genre
-  //   });
-
-  //   console.log('~~~TEST~~~~');
-  //   console.log(Title);
-  //   console.log(newBook);
-  //   book.push(newBook);
-  //   book.save();
-
-  //   res.redirect('/books');
-
-  // } catch (error) {
-  //   console.log(error);
-  //   res.end(error);
-  // }
 
     let newBook = book
     ({
@@ -80,8 +46,6 @@ router.post('/add', async (req, res, next) => {
         "Genre": req.body.genre
     });
 
-    console.log('~~!!Test!!~~');
-    console.log(req.body);
 
     book.create(newBook, (err, book) => {
       if(err)
@@ -97,10 +61,6 @@ router.post('/add', async (req, res, next) => {
 
 // GET the Book Details page in order to edit an existing Book
 router.get('/:id', (req, res, next) => {
-
-    /*****************
-     * ADD CODE HERE *
-     *****************/
 
     let id = req.params.id;
     book.findById(id, (err, bookToEdit) => {
@@ -121,9 +81,6 @@ router.get('/:id', (req, res, next) => {
 // POST - process the information passed from the details form and update the document
 router.post('/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
     let id = req.params.id
     
     let updatedBook = book ({
@@ -151,10 +108,6 @@ router.post('/:id', (req, res, next) => {
 
 // GET - process the delete by user id
 router.get('/delete/:id', (req, res, next) => {
-
-    /*****************
-     * ADD CODE HERE *
-     *****************/
 
     let id = req.params.id;
     

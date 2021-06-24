@@ -1,3 +1,8 @@
+// File Name: server.js
+// Author's Name: Yerim Cho
+// Student ID : 301143325
+// Web App name: Book List
+
 let app = require('./server/config/app');
 let debug = require('debug')('comp308-w2019-midterm:server');
 let http = require('http');
