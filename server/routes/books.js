@@ -34,18 +34,54 @@ router.get('/add', (req, res, next) => {
 });
 
 // POST process the Book Details page and create a new Book - CREATE
-router.post('/add', (req, res, next) => {
+router.post('/add', async (req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
      *****************/
+    
+  //    const {
+  //  body: {
+  //     Title,
+  //     Price,
+  //     Author,
+  //     Genre
+  //   }
+  // } = req;
+
+  //console.log(req.body.title);
+
+  // try {
+  //   const newBook = await book.create({
+  //     Title,
+  //     Price,
+  //     Author,
+  //     Genre
+  //   });
+
+  //   console.log('~~~TEST~~~~');
+  //   console.log(Title);
+  //   console.log(newBook);
+  //   book.push(newBook);
+  //   book.save();
+
+  //   res.redirect('/books');
+
+  // } catch (error) {
+  //   console.log(error);
+  //   res.end(error);
+  // }
+
     let newBook = book
     ({
-        "Title": req.body.Title,
-        "Price": req.body.Price,
-        "Author": req.body.Author,
-        "Genre": req.body.Genre
+        "Title": req.body.title,
+        "Price": req.body.price,
+        "Author": req.body.author,
+        "Genre": req.body.genre
     });
+
+    console.log('~~!!Test!!~~');
+    console.log(req.body);
 
     book.create(newBook, (err, book) => {
       if(err)
@@ -92,10 +128,10 @@ router.post('/:id', (req, res, next) => {
     
     let updatedBook = book ({
         "_id": id,
-        "Title": req.body.Title,
-        "Price": req.body.Price,
-        "Author": req.body.Author,
-        "Genre": req.body.Genre
+        "Title": req.body.title,
+        "Price": req.body.price,
+        "Author": req.body.author,
+        "Genre": req.body.genre
     });
 
     book.updateOne({_id: id}, updatedBook, (err) => {
