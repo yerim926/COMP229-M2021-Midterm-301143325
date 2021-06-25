@@ -1,3 +1,8 @@
+<!--File Name: index.ejs   
+    Author's Name: Yerim Cho
+    Student ID : 301143325
+    Web App name: Book List-->
+
 <%- include('../partials/header.ejs'); %>
 
     <!-- MAIN CONTENT -->
@@ -5,10 +10,8 @@
       <div class="row">
         <div class="col-md-offset-1 col-md-10">
           <h3>Favourite Books List </h3>
-          <!-- ------------------------ -->
-          <!-- FIX THE ADD BUTTON BELOW -->
-          <!-- ------------------------ -->
-          <a href="/books/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a book</a>
+          <!--add button-->
+          <a href="/books/add" class="btn btn-success"><i class="fa fa-plus"></i> Add a book</a>
           <br>
           <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
@@ -32,11 +35,13 @@
                   <td class="text-center"><%= books[count].Genre %></td>
 
                   <td class="text-center">
-                    <a href="/books/<%= books[count]._id %>" class="btn btn-primary"> Edit</a>
+                  <!--edit button-->
+                    <a href="/books/<%= books[count]._id %>" class="btn btn-primary"><i class="fa fa-edit"></i> Edit</a>
                   </td>
 
                   <td class="text-center">
-                    <a href="books/delete/<%= books[count]._id %>"class="btn btn-danger"> Delete</a>
+                  <!--delete button-->
+                    <a href="books/delete/<%= books[count]._id %>"class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a>
                   </td>
                 </tr>
                 <% } %>
